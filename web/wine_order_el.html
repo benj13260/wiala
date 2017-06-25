@@ -1,0 +1,115 @@
+<dom-module id="wine-order-el">
+    <template>
+        <style is="custom-style"  include="iron-flex iron-flex-alignment">
+            .hory {
+                @apply(--layout-horizontal);
+                padding: 0px 5px;
+                border: transparent solid 2px;
+            }
+
+            .flexchild {
+                @apply(--layout-flex);
+            }
+
+            .horypad {
+                padding-top: 10px;
+            }
+
+            .selfc {
+                @apply(--layout-self-center);
+            }
+
+            .vert {
+                @apply(--layout-vertical);
+                padding-left: 10px;
+                padding-top: 20px;
+                width: 225px;
+            }
+
+            .cardcontent {
+                @apply(--layout-horizontal);
+                margin: 10px;
+                padding: 25px;
+                width: 200px;/*400px; */
+                background-color: rgba(255, 255, 255, 0.70);
+                display: inline;
+            }
+
+            .img-bottle-order {
+                width: 100px;
+                height: 250px;
+                border-radius: 10px;
+            }
+
+            paper-input {
+                width: 50px;
+                --paper-input-container-color: rgb(133, 65, 90);
+                --paper-input-container-focus-color: rgb(133, 65, 90);
+                --paper-input-container-invalid-color: rgb(133, 65, 90);
+                --paper-input-container-input-color: rgb(133, 65, 90);
+            }
+
+            .titleFe{
+                font-size: 1.4em;
+                padding: 0px;
+            }
+
+            .card-inline {
+                display: inline;
+                margin: 10px;
+                width: 180px;
+                height: 325px;
+            }
+
+            .cardcontent2 {
+                padding: 10px;
+                width: 220px;
+                height: 325px;
+                background-color: rgba(255, 255, 255, 0.70);
+            }
+            .bottom-zero{
+                position:fixed;
+                bottom: 0px;
+            }
+
+            paper-button{
+                margin-top: 1em;
+            }
+
+
+        </style>
+        <div class="card-inline">
+            <paper-button toggles raised on-tap="ref">
+                 <div class="layout vertical cardcontent2">
+                     <div class="titleFe self center">{{i_vin}}</div>
+                     <div id="year" class="titleFe self center"> {{i_year}}</div>
+                     <div class="flex"></div>
+                     <iron-image src={{i_url}} sizing="contain"
+                                 class="img-bottle-order layout self-center"></iron-image>
+                 </div>
+            </paper-button>
+        </div>
+                <!--div class="cardcontent">
+            <iron-image src={{i_url}} sizing="contain"
+                        class="img-bottle-order"></iron-image>
+            <div class="vert">
+                <div class="horypad"></div>
+                <div class="title">{{i_vin}}<span id="year"> {{i_year}}</span></div>
+                <div class="horypad"></div>
+                <div class="hory" id="inputBo">
+                    <div class="selfc">{{txt.bo}}<span> {{i_bo}} &#8364; : </span></div>
+                    <div class="flexchild"></div>
+                    <paper-input class="flexend" no-label-float="true" type="number" id="bot"
+                                 on-change="change"></paper-input>
+                </div>
+                <div class="horypad"></div>
+                <div class="hory" id="inputCa">
+                    <div class="selfc">{{txt.ca}}<span> {{i_ca}} &#8364; : </span></div>
+                    <div class="flexchild"></div>
+                    <paper-input no-label-float="true" type="number" id="ca" on-change="change"></paper-input>
+                </div>
+                <div><span>({{txt.ppb}} : {{i_cabo}} &#8364;)</span></div>
+            </div>
+        </div-->
+    </template>
+</dom-module>

@@ -1,0 +1,323 @@
+<dom-module id="wines-el">
+    <template>
+        <style is="custom-style" include="iron-flex iron-flex-alignment">
+            .img {
+                width: 300px;
+                height: 300px;
+                margin-right:20px;
+            }
+            .subtitle {
+                padding-bottom: 20px;
+            }
+
+            .dialog_center {
+                padding: 20px;
+                max-width: 700px;
+                /*height: 600px;*/
+                margin: 0px;
+                border-radius: 10px;
+            }
+
+            .card{
+                height: 300px;
+            }
+            .cardS {
+                background-color: rgba(255, 255, 255, 0.80);
+                margin: auto;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                padding: 20px;
+                -moz-border-radius:10px;
+                -webkit-border-radius:10px;
+                -khtml-border-radius:10px;
+                border-radius: 10px;
+            }
+            .text-pos{
+                width: 700px;
+                position: relative;
+                left: 320px;
+                top: -280px;
+            }
+            paper-dialog {
+                --paper-dialog : {
+                    margin: 0px;
+                }
+            }
+
+            but-wine-el{
+                margin-bottom: 20px;
+                --paper-button : {
+                    margin-bottom: 20px;
+                }
+
+            }
+
+            .close_dialog {
+                /*background-color: rgb(102, 0, 51);
+                color: white; */
+                background-color: rgb(102, 0, 51) ;
+                color:  white;
+                margin-top: 5px;
+                font-weight: bold;
+                font-size: 1.4em;
+                width: 25px;
+                min-width: 25px;
+                height: 20px;
+                padding: 0px 5px;
+                /* justified */
+            }
+
+            @media screen and  (max-width: 1060px) {
+                #smallS{
+                    display: block;
+                }
+                #largeS{
+                    display: none;
+                }
+            }
+            @media screen and  (min-width: 1061px) {
+                #smallS{
+                    display: none;
+                }
+                #largeS{
+                    display: block;
+                }
+            }
+            @media screen and  (max-width: 550px) {
+                .img-bottle{
+                    display: none;
+                }
+            }
+            @media screen and  (min-width: 550px) {
+                .img-bottle{
+                    display: block;
+                }
+            }
+        </style>
+        <div on-wine-click="winePage" >
+            <div id="smallS">
+                <div class="cardS">
+                    <div class="titleFe">{{txt.title_exp}}</div>
+                    <div class="layout horizontal wrap center-justified">
+                        <iron-image  src="images/expression.jpg" sizing="contain" class="img"></iron-image>
+
+                        <div class="subtitle">{{txt.subtitle_exp}}</div>
+                        <but-wine-el i_id="rebelle" i_text="{{txt.rebelle}}"
+                                     i_subtext="{{txt.rebelle_sub}}"></but-wine-el>
+                        <but-wine-el i_id="harmonie" i_text="{{txt.harmonie}}"
+                                     i_subtext="{{txt.harmonie_sub}}"></but-wine-el>
+                        <but-wine-el i_id="imprevisible" i_text="{{txt.imprevisible}}"
+                                     i_subtext="{{txt.imprevisible_sub}}"></but-wine-el>
+                    </div>
+                </div>
+                <div class="cardS">
+                    <div class="titleFe">{{txt.title_fin}}</div>
+                    <div class="layout horizontal wrap center-justified">
+                        <iron-image src="images/finesse.jpg" sizing="contain" class="img"></iron-image>
+                        <div class="subtitle">{{txt.subtitle_fin}}</div>
+                        <but-wine-el i_id="muscatriv" i_text="{{txt.muscatriv}}"
+                                     i_subtext="{{txt.muscatriv_sub}}"></but-wine-el>
+                        <but-wine-el i_id="gris" i_text="{{txt.gris}}"
+                                     i_subtext="{{txt.gris_sub}}"></but-wine-el>
+                        <but-wine-el i_id="muscatsec" i_text="{{txt.muscatsec}}"
+                                     i_subtext="{{txt.muscatsec_sub}}"></but-wine-el>
+                    </div>
+                </div>
+            </div>
+            <div id="largeS">
+                <div class="card">
+                    <iron-image id="exp" src="images/expression.jpg" sizing="contain" class="img"></iron-image>
+                    <div class="text-pos">
+                        <span class="titleFe">{{txt.title_exp}}</span><br><br>
+                        <span class="subtitle">{{txt.subtitle_exp}}</span><br><br><br>
+                        <div>
+                            <but-wine-el i_id="rebelle" i_text="{{txt.rebelle}}"
+                                         i_subtext="{{txt.rebelle_sub}}"></but-wine-el>
+                            <but-wine-el i_id="harmonie" i_text="{{txt.harmonie}}"
+                                         i_subtext="{{txt.harmonie_sub}}"></but-wine-el>
+                            <but-wine-el i_id="imprevisible" i_text="{{txt.imprevisible}}"
+                                         i_subtext="{{txt.imprevisible_sub}}"></but-wine-el>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <iron-image id="fin" src="images/finesse.jpg" sizing="contain" class="img"></iron-image>
+                    <div class="text-pos">
+                        <span class="titleFe">{{txt.title_fin}}</span><br><br>
+                        <span class="subtitle">{{txt.subtitle_fin}}</span><br><br><br>
+                        <div>
+                            <but-wine-el i_id="muscatriv" i_text="{{txt.muscatriv}}"
+                                         i_subtext="{{txt.muscatriv_sub}}"></but-wine-el>
+                            <but-wine-el i_id="gris" i_text="{{txt.gris}}"
+                                         i_subtext="{{txt.gris_sub}}"></but-wine-el>
+                            <but-wine-el i_id="muscatsec" i_text="{{txt.muscatsec}}"
+                                         i_subtext="{{txt.muscatsec_sub}}"></but-wine-el>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sep"></div>
+            <paper-dialog id="rebelleD" entry-animation="scale-up-animation"
+                          exit-animation="fade-out-animation"
+                          with-backdrop >
+                <div class="but dialog_center">
+                    <div class="horizontal end-justified layout">
+                        <paper-button raised toggles class="close_dialog" on-tap="closedialog">X</paper-button>
+                    </div>
+                    <div class="layout horizontal">
+                        <div class="img-bottle">
+                            <iron-image src="images/wines/rebelle.jpg" sizing="contain"
+                                        class="img-bottle"></iron-image>
+                        </div>
+                        <div class="marg-left">
+                            <div class="title sep">{{txt.rebelle}}<span class="title2"> {{txt.rebelle_121}}</span></div>
+                            <div class="dialog_content">{{txt.rebelle_desc}}</div>
+                            <paper-tabs class="wiala-color-i wiala-mid" selected="{{tabselected}}">
+                                <paper-tab>2012</paper-tab>
+                            </paper-tabs>
+                            <iron-pages selected="{{tabselected}}">
+                                <wine-el i_title="{{txt.rebelle_12}}"
+                                         i_title2="{{txt.rebelle_121}}" i_cepages="{{txt.rebelle_12_1}}"
+                                         i_age="{{txt.rebelle_12_2}}" i_sol="{{txt.rebelle_12_3}}"
+                                         i_degust="{{txt.rebelle_12_4}}" i_accords="{{txt.rebelle_12_5}}"></wine-el>
+                            </iron-pages>
+                        </div>
+                    </div>
+                </div>
+
+            </paper-dialog>
+            <paper-dialog id="harmonieD" entry-animation="scale-up-animation"
+                          exit-animation="fade-out-animation" with-backdrop>
+                <div class="but dialog_center">
+                    <div class="horizontal end-justified layout">
+                        <paper-button  raised toggles class="close_dialog" on-tap="closedialog">X</paper-button>
+                    </div>
+                    <div class="layout horizontal">
+                        <div class="img-bottle">
+                            <iron-image src="images/wines/harmonie.jpg" sizing="contain"
+                                        class="img-bottle"></iron-image>
+                        </div>
+                        <div class="marg-left">
+                            <div class="title sep">{{txt.harmonie}}<span class="title2"> {{txt.harmonie_121}}</span></div>
+                            <div class="dialog_content">{{txt.harmonie_desc}}</div>
+                            <paper-tabs class="wiala-color-i wiala-mid" selected="{{tabselected}}">
+                                <paper-tab>2012</paper-tab>
+                                <paper-tab>2013</paper-tab>
+                            </paper-tabs>
+                            <iron-pages selected="{{tabselected}}">
+                                <wine-el i_title="{{txt.harmonie_12}}"
+                                         i_title2="" i_cepages="{{txt.harmonie_12_1}}"
+                                         i_age="{{txt.harmonie_12_2}}" i_sol="{{txt.harmonie_12_3}}"
+                                         i_degust="{{txt.harmonie_12_4}}" i_accords="{{txt.harmonie_12_5}}"></wine-el>
+                                <wine-el i_title="{{txt.harmonie_13}}"
+                                         i_title2="" i_cepages="{{txt.harmonie_13_1}}"
+                                         i_age="{{txt.harmonie_13_2}}" i_sol="{{txt.harmonie_13_3}}"
+                                         i_degust="{{txt.harmonie_13_4}}" i_accords="{{txt.harmonie_13_5}}"
+                                         i_rewards="{{txt.harmonie_13_6}}"
+                                ></wine-el>
+                            </iron-pages>
+                        </div>
+                    </div>
+                </div>
+            </paper-dialog>
+            <paper-dialog id="imprevisibleD" entry-animation="scale-up-animation"
+                          exit-animation="fade-out-animation" with-backdrop>
+                <div class="but dialog_center">
+                    <div class="horizontal end-justified layout">
+                        <paper-button raised toggles class="close_dialog" on-tap="closedialog">X</paper-button>
+                    </div>
+                    <div class="layout horizontal">
+                        <div class="img-bottle">
+                            <iron-image src="images/wines/imprevisible.jpg" sizing="contain"
+                                        class="img-bottle"></iron-image>
+                        </div>
+                        <div class="marg-left">
+                            <div class="title sep">{{txt.imprevisible}}<span class="title2"> {{txt.imprevisible_091}}</span>
+                            </div>
+                            <div class="dialog_content">{{txt.imprevisible_desc}}</div>
+                            <paper-tabs class="wiala-color-i wiala-mid" selected="{{tabselected}}">
+                                <paper-tab>2009</paper-tab>
+                            </paper-tabs>
+                            <iron-pages selected="{{tabselected}}">
+                                <wine-el i_title="{{txt.imprevisible_09}}"
+                                         i_title2="{{txt.imprevisible_091}}" i_cepages="{{txt.imprevisible_09_1}}"
+                                         i_age="{{txt.imprevisible_09_2}}" i_sol="{{txt.imprevisible_09_3}}"
+                                         i_degust="{{txt.imprevisible_09_4}}"
+                                         i_accords="{{txt.imprevisible_09_5}}" i_rewards="{{txt.imprevisible_09_6}}"></wine-el>
+                            </iron-pages>
+                        </div>
+                    </div>
+                </div>
+            </paper-dialog>
+            <paper-dialog id="muscatsecD" entry-animation="scale-up-animation"
+                          exit-animation="fade-out-animation" with-backdrop>
+                <div class="but dialog_center">
+                    <div class="horizontal end-justified layout">
+                        <paper-button raised toggles class="close_dialog" on-tap="closedialog">X</paper-button>
+                    </div>
+                    <div class="layout horizontal">
+                        <div class="img-bottle">
+                            <iron-image src="images/wines/muscatsec.jpg" sizing="contain"
+                                        class="img-bottle"></iron-image>
+                        </div>
+                        <div class="marg-left">
+                            <div class="title sep">{{txt.muscatsec}}<span class="title2"> {{txt.muscatsec_app}}</span></div>
+                            <div class="dialog_content">{{txt.muscatsec_desc}}</div>
+                            <wine-el i_title="{{txt.muscatsec}}"
+                                     i_title2="{{txt.muscatsec1}}" i_cepages="{{txt.muscatsec_1}}"
+                                     i_age="{{txt.muscatsec_2}}" i_sol="{{txt.muscatsec_3}}"
+                                     i_degust="{{txt.muscatsec_4}}" i_accords="{{txt.muscatsec_5}}"></wine-el>
+
+                        </div>
+                    </div>
+                </div>
+            </paper-dialog>
+            <paper-dialog id="muscatrivD" entry-animation="scale-up-animation"
+                          exit-animation="fade-out-animation" with-backdrop>
+                <div class="but dialog_center">
+                    <div class="horizontal end-justified layout">
+                        <paper-button  raised toggles class="close_dialog" on-tap="closedialog">X</paper-button>
+                    </div>
+                    <div class="layout horizontal">
+                        <div class="img-bottle">
+                            <iron-image src="images/wines/muscatriv.jpg" sizing="contain"
+                                        class="img-bottle"></iron-image>
+                        </div>
+                        <div class="marg-left">
+                            <div class="title sep">{{txt.muscatriv}}<span class="title2"> {{txt.muscatriv_app}}</span></div>
+                            <div class="dialog_content">{{txt.muscatriv_desc}}</div>
+                            <wine-el i_title="{{txt.muscatriv}}"
+                                     i_title2="{{txt.muscatriv1}}" i_cepages="{{txt.muscatriv_1}}"
+                                     i_age="{{txt.muscatriv_2}}" i_sol="{{txt.muscatriv_3}}"
+                                     i_degust="{{txt.muscatriv_4}}" i_accords="{{txt.muscatriv_5}}"></wine-el>
+
+                        </div>
+                    </div>
+                </div>
+            </paper-dialog>
+            <paper-dialog id="grisD" entry-animation="scale-up-animation"
+                          exit-animation="fade-out-animation" with-backdrop>
+                <div class="but dialog_center">
+                    <div class="horizontal end-justified layout">
+                        <paper-button raised toggles class="close_dialog" on-tap="closedialog">X</paper-button>
+                    </div>
+                    <div class="layout horizontal">
+                        <div class="img-bottle">
+                            <iron-image src="images/wines/gris.jpg" sizing="contain"
+                                        class="img-bottle"></iron-image>
+                        </div>
+                        <div class="marg-left">
+                            <div class="title sep">{{txt.gris}}<span class="title2"> {{txt.gris_app}}</span></div>
+                            <div class="dialog_content">{{txt.gris_desc}}</div>
+                            <!--wine-el  i_title="{{txt.gris_12}}"
+                                     i_title2="{{txt.gris_121}}" i_cepages="{{txt.gris_12_1}}"
+                                     i_age="{{txt.gris_12_2}}" i_sol="{{txt.gris_12_3}}"
+                                     i_degust="{{txt.gris_12_4}}" i_accords="{{txt.gris_12_5}}"></wine-el-->
+
+                        </div>
+                    </div>
+                </div>
+            </paper-dialog>
+        </div>
+    </template>
+</dom-module>

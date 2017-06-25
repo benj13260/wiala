@@ -1,0 +1,47 @@
+<dom-module id="but-plus-min-el">
+    <template>
+        <style is="custom-style"  include="iron-flex iron-flex-alignment">
+            .larg {
+                width: 100px;
+                margin-right: 25px;
+            }
+
+            .mid {
+                /*background-color: white;*/
+                color: rgb(102, 0, 51) ;
+                height:20px;
+                min-width: 20px;
+                border-radius: 10px;
+                margin-top: 10px;
+                text-align: center;
+                /*padding-top: 2px;*/
+            }
+
+            paper-button {
+                /*background-color: rgb(102, 0, 51);
+                color: white; */
+                background-color: rgb(102, 0, 51) ;
+                color:  white;
+                margin-top: 5px;
+                font-weight: bold;
+                font-size: 1.4em;
+                width: 20px;
+                min-width: 20px;
+                padding: 0px 5px;
+                /* justified */
+            }
+            .box {
+                width: 220px;
+            }
+        </style>
+        <div class="layout horizontal">
+            <div class="self-center box">{{i_text}} : </div>
+            <div class="layout horizontal justified larg">
+                <paper-button toggles raised on-tap="plus">+</paper-button>
+                <div class="self-center mid">{{i_nr}}</div>
+                <paper-button toggles raised on-tap="min">-</paper-button>
+            </div>
+            <div id="offer" class="self-center"></div>
+        </div>
+    </template>
+</dom-module>

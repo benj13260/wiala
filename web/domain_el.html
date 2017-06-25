@@ -1,0 +1,59 @@
+<dom-module id="domain-el">
+    <template>
+        <style is="custom-style"  include="iron-flex iron-flex-alignment">
+
+            .img {
+                width: 300px;
+                height: 180px;
+                float: left;
+                margin: 20px;
+            }
+
+           .img2 {
+               width: 300px;
+               height: 180px;
+               float: right;
+               margin: 20px;
+           }
+
+            .card {
+                margin-top:20px;
+                margin-bottom: 20px;
+            }
+
+            .pad-left{
+                padding-left: 20px;
+            }
+
+
+            @media screen and  (max-width: 650px) {
+                .card{
+                    width: 400px;
+                }
+            }
+
+        </style>
+        <div class="card">
+            <iron-image sizing="contain" src="images/domain/domain_cave.jpg" class="img"></iron-image>
+                <span class="titleFe">{{txt.domain_cave_title}}</span><br><br>
+                <span class="subtitle">{{txt.domain_cave}}</span> <br><br><br>
+                <span class="titleFe">{{txt.domain_wine_title}}</span><br><br>
+                <span class="subtitle">{{txt.domain_wine}}</span>
+            </div>
+        </div>
+        <div class="card">
+            <iron-image sizing="contain" src="images/domain/domain_culture.jpg" class="img2"></iron-image>
+                <span class="titleFe">{{txt.domain_culture_title}}</span><br><br>
+                <span class="subtitle">{{txt.domain_culture}}</span><br>
+                <ul class="pad-left">
+                    <li><iron-icon icon="hardware:keyboard-arrow-right"></iron-icon> {{txt.domain_culture_1}}</li>
+                    <li><iron-icon icon="hardware:keyboard-arrow-right"></iron-icon> {{txt.domain_culture_2}}</li>
+                    <li><iron-icon icon="hardware:keyboard-arrow-right"></iron-icon> {{txt.domain_culture_3}}</li>
+                    <li><iron-icon icon="hardware:keyboard-arrow-right"></iron-icon> {{txt.domain_culture_4}}</li>
+                </ul><br>
+                <span class="titleFe">{{txt.domain_grow_title}}</span><br><br>
+                <span class="subtitle">{{txt.domain_grow}}</span>
+        </div>
+
+    </template>
+</dom-module>

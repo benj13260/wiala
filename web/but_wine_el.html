@@ -1,0 +1,19 @@
+<dom-module id="but-wine-el">
+    <template>
+        <style>
+            paper-button { /*.but { */
+                background: rgb(133, 65, 90);
+                color: white;
+                border-radius: 10px;
+                width: 215px;
+                height: 100px;
+            }
+        </style>
+        <paper-button id="but" raised toggles class="but" on-tap="page">
+            <div>
+                <div class="buttitle">{{i_text}}</div>
+                <div class="butsubtitle">{{i_subtext}}</div>
+            </div>
+        </paper-button>
+    </template>
+</dom-module>

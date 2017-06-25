@@ -1,0 +1,32 @@
+<dom-module id="but-img-el">
+    <template>
+        <style is="custom-style"  include="iron-flex iron-flex-alignment">
+            .but-flex-horizontal {
+                @apply(--layout-horizontal);
+                padding-top: 15px;
+            }
+
+            .but-flexchild {
+                @apply(--layout-flex);
+            }
+
+            paper-button {
+                /*background-color: rgb(102, 0, 51);
+                color: white; */
+                background-color:  white;
+                color:rgb(102, 0, 51);
+                margin-top: 5px;
+                width: 95%;
+            }
+        </style>
+        <paper-button class="but-rate" toggles raised on-tap="page">
+            <div class="container but-flex-horizontal">
+                <div class="but-spaceleft">
+                    <iron-image id="but-el-img" src="{{i_src}}" sizing="contain" class="img16"></iron-image>
+                </div>
+                <div class="but-spaceleft2">{{i_text}}</div>
+                <div class="but-flexchild"></div>
+            </div>
+        </paper-button>
+    </template>
+</dom-module>

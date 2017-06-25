@@ -1,0 +1,78 @@
+<dom-module id="contact-el">
+    <template>
+        <style is="custom-style"  include="iron-flex iron-flex-alignment">
+            .card {
+                height: 600px;
+                width: 900px;
+                padding: 20px;
+            }
+
+            .maps {
+                height: 500px;
+                width: 500px;
+            }
+
+            .textcard {
+                width: 900px;
+                text-align: center;
+                height: 280px;
+            }
+
+            .maps {
+                width: 900px;
+                margin-top: 20px;
+            }
+
+            .ita {
+                font-style: italic;
+            }
+
+            .sep {
+                padding: 20px; /* 120px;*/
+                min-width: 300px;
+            }
+            .bold{
+                padding-top: 8px;
+            }
+        </style>
+        <div class="layout vertical card">
+                <div class="layout horizontal around-justified textcard">
+                    <div class="sep">
+                        <div class="ita">{{txt.addr}}</div>
+                        <div class="bold">3 rue de la Glacière</div>
+                        <div class="bold">11350 Tuchan</div>
+                        <div class="ph1">---</div>
+                        <div class="ita">{{txt.open_1}}</div>
+                        <div class="bold">{{txt.open_2}}</div>
+                        <div class="bold">{{txt.open_3}}</div>
+                    </div>
+
+                    <div class="sep">
+                        <div class="ita">{{txt.contact}}</div>
+                        <div class="bold">Email: <a href="mailto:hubert@chateau-wiala.com" target="_top">Hubert
+                            Busquet</a></div>
+
+                        <div class="ph1">---</div>
+                        <div class="bold">
+                            <iron-icon icon="communication:phone" class="img16"></iron-icon>
+                            +33 (0)4 68 45 49 49</div>
+                        <div class="bold">
+                            <iron-icon icon="communication:phone" class="img16"></iron-icon>
+                            +33 (0)6 60 90 53 05</div>
+                        <div class="bold">
+                            <iron-icon icon="icons:print" class="img16"></iron-icon>
+                            +33 (0)4 68 45 92 13</div>
+                    </div>
+                </div>
+                <div class="layout horizontal around-justified maps">
+                    <iron-image class="img" src="images/map.png"></iron-image>
+
+                    <a target="_blank"
+                       href="https://www.google.com/maps/place/3+Rue+de+la+Glaci%C3%A8re,+11350+Tuchan,+France/@42.8863448,2.7198955,17z/data=!3m1!4b1!4m2!3m1!1s0x12b03eebc021f263:0x4118d3bb1eed32fa?hl=fr-FR">
+                        <img class="img2" src="images/gmaps.png" alt="">
+                    </a>
+                </div>
+
+        </div>
+    </template>
+</dom-module>

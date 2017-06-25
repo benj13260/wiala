@@ -1,0 +1,33 @@
+<dom-module id="location-el">
+    <template>
+        <style is="custom-style"  include="iron-flex iron-flex-alignment">
+
+            .img {
+                /*width: 615px;
+                height: 350px;
+                padding: 10px;*/
+                margin: 15px;
+            }
+
+            .card {
+                margin-top:10px;
+                margin-bottom: 10px;
+            }
+            .pad_left{
+                padding-left: 50px;
+            }
+
+
+        </style>
+        <div class="card">
+            <span class="titleFe">{{txt.bnb}}</span>
+            <a class="subtitle pad_left" href="https://www.gites-de-france.com/location-vacances-Tuchan-Gite-11G2333.html" target="_blank">[[txt.bnb_link]]</a> <br> <br>
+            <div class="subtitle">{{txt.bnb_1}}</div>
+            <!--iron-image sizing="contain" src="images/bnb.jpg" class="img"></iron-image-->
+            <div class="layout horizontal center-justified">
+                <iron-image src="images/bnb.jpg" class="img" preload fade alt="Bed and breakfast tuchan Wiala"></iron-image>
+            </div>
+            <span class="subtitle" id="bnbtxt"></span><br><br>
+        </div>
+    </template>
+</dom-module>

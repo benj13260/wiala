@@ -1,0 +1,69 @@
+<dom-module id="team-el">
+    <template>
+        <style is="custom-style"  include="iron-flex iron-flex-alignment">
+
+
+
+            /* For medium of max 500px large -> rearrange website*/
+
+            @media screen and  (max-width: 500px) {
+                .sm{
+                    display: block;
+                }
+                .lg{
+                    display: none;
+                }
+                .img {
+                    width: 205px;
+                    height: 300px;
+                    margin: auto;
+                }
+                .img_div{
+                    margin: auto;
+                    width: 205px;
+                }
+
+                .titleFe {
+                    display: block;
+                }
+            }
+            @media screen and  (min-width: 501px) {
+                .sm{
+                    display: none;
+                }
+                .lg{
+                    display: block;
+                }
+                .img {
+                    width: 205px;
+                    height: 300px;
+                    float: left;
+                    margin: 20px;
+                }
+            }
+
+        </style>
+        <div class="card lg">
+            <iron-image sizing="contain" src="images/hubert.png" class="img"></iron-image>
+            <span class="titleFe">{{txt.hubert}}</span><br><br>
+            {{txt.hubert_1}}<br><br>
+            {{txt.hubert_2}}<br><br>
+            {{txt.hubert_3}}<br><br>
+            {{txt.hubert_4}}<br><br>
+            {{txt.hubert_5}}<br><br>
+            {{txt.hubert_6}}<br><br>
+        </div>
+        <div class="card sm">
+            <div class="titleFe">{{txt.hubert}}</div>
+            <div class="img_div"><iron-image sizing="contain" src="images/hubert.png" class="img"></iron-image></div>
+            <br><br>
+            {{txt.hubert_1}}<br><br>
+            {{txt.hubert_2}}<br><br>
+            {{txt.hubert_3}}<br><br>
+            {{txt.hubert_4}}<br><br>
+            {{txt.hubert_5}}<br><br>
+            {{txt.hubert_6}}<br><br>
+        </div>
+
+    </template>
+</dom-module>

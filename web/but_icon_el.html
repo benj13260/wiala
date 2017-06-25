@@ -1,0 +1,37 @@
+<dom-module id="but-icon-el" attributes="i_id i_src i_text">
+    <template>
+        <style is="custom-style"  include="iron-flex iron-flex-alignment">
+            .but-flex-horizontal {
+                @apply(--layout-horizontal);
+                padding-top: 15px;
+            }
+
+            .but-flexchild {
+                @apply(--layout-flex);
+            }
+            paper-button{
+                /*background-color: rgb(102, 0, 51);
+                color: white; */
+                background-color:  white;
+                color:rgb(102, 0, 51);
+                width: 95%;
+                margin-top: 5px;
+            }
+            iron-icon{
+                --iron-icon-width: 16px;
+                --iron-icon-height: 16px;
+            }
+
+        </style>
+        <paper-button class="but-rate" toggles raised on-tap="page">
+            <div class="container but-flex-horizontal">
+                <div class="but-spaceleft">
+                    <iron-icon id="but-el-icon" icon="{{i_src}}" class="img16"></iron-icon>
+                </div>
+                <div class="but-spaceleft2">{{i_text}}</div>
+                <div class="but-flexchild" >  </div>
+                <div id="arrow" >  </div>
+            </div>
+        </paper-button>
+    </template>
+</dom-module>

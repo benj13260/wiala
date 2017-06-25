@@ -1,0 +1,90 @@
+<dom-module id="rewards-el">
+    <template>
+        <style is="custom-style"  include="iron-flex iron-flex-alignment">
+
+            .img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .img1 {
+                width: 80px;
+                height: 80px;
+            }
+
+            .img2 {
+                width: 400px;
+                height: 200px;
+            }
+
+            .cardcontain {
+                margin: 0 10px;
+                width: 480px;
+            }
+
+            .sep {
+                padding-top: 25px;
+            }
+
+            .space-bottom {
+                margin-bottom: 25px;
+            }
+
+            .left{
+                padding-left: 15px;
+            }
+
+            .card {
+                padding: 10px 0px 10px 0px;
+            }
+
+        </style>
+        <div class="layout horizontal card">
+            <div class="cardcontain">
+                <div class="titleFe">{{txt.title_har}}</div><br>
+                <div class="wiala-mid">{{txt.title_har_09}}</div>
+                <div class="layout horizontal">
+                    <iron-image sizing="contain" src="images/rewards/harmonie_09.jpg" class="img2"></iron-image>
+                    <div class="self-center left">
+                        <div>
+                            <iron-icon icon="hardware:keyboard-arrow-right"></iron-icon>
+                            <span>{{txt.har_09_1}}</span>
+                        </div>
+                        <div class="sep">
+                            <iron-icon icon="hardware:keyboard-arrow-right"></iron-icon>
+                            <span>{{txt.har_09_2}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardcontain">
+                <div class="titleFe">{{txt.title_sel}}</div><br>
+                <div class="wiala-mid">{{txt.title_sel_09}}</div>
+                <div class="layout horizontal">
+                    <iron-image sizing="contain" src="images/rewards/selection_09.jpg" class="img"></iron-image>
+                    <div class="self-center left">
+                        <div>
+                            <iron-icon icon="hardware:keyboard-arrow-right"></iron-icon>
+                            <span>{{txt.sel_09_1}}</span>
+                        </div>
+                        <div class="sep">
+                            <iron-icon icon="hardware:keyboard-arrow-right"></iron-icon>
+                            <span>{{txt.sel_09_2}}</span>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="wiala-mid sep">{{txt.title_sel_06}}</div>
+                <div class="layout horizontal space-bottom">
+                    <iron-image sizing="contain" src="images/rewards/hachette_09.jpg" class="img1"></iron-image>
+                    <div class="self-center left">
+                        <iron-icon icon="hardware:keyboard-arrow-right"></iron-icon>
+                        <span>{{txt.sel_06}}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sep"></div>
+    </template>
+</dom-module>

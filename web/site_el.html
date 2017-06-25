@@ -1,0 +1,158 @@
+<dom-module id="site-el">
+    <template>
+        <style is="custom-style"  include="iron-flex iron-flex-alignment">
+/*
+            .style-scope /deep/ {
+                --dark-primary-color: fff;
+                --default-primary-color: fff;
+                --light-primary-color: fff;
+                --text-primary-color: fff;
+                --accent-color: #FFEB3B;
+                --primary-background-color: fff;
+                --primary-text-color: #212121;
+                --secondary-text-color: #727272;
+                --disabled-text-color: #BDBDBD;
+                --divider-color: #B6B6B6;
+
+            }
+*/
+            @media screen and  (min-width: 800px) {
+                .toolbar {
+                    height: 110px;
+                    /*background-color: rgb(102, 0, 51);
+                    color: white; */
+                    background-color:  white;
+                    color:rgb(102, 0, 51);
+                }
+
+                paper-toolbar {
+                    --paper-toolbar-height: 110px;
+                }
+
+                .titlew {
+                    font-family: ed;
+                    font-size: 100px;
+                    font-weight: bold;
+                }
+
+                .titlewiala {
+                    font-family: ed;
+                    font-size: 70px;
+                    padding-left: 60px;
+                }
+
+            }
+
+            @media screen and (max-width: 800px) {
+                .toolbar {
+                    height: 64px;
+                    /*background-color: rgb(102, 0, 51);
+                    color: white; */
+                    background-color:  white;
+                    color:rgb(102, 0, 51);
+                }
+
+                paper-toolbar {
+                    --paper-toolbar-height: 64px;
+                }
+
+                .titlew {
+                    font-family: ed;
+                    font-size: 50px;
+                    font-weight: bold;
+                }
+
+                .titlewiala {
+                    font-family: ed;
+                    font-size: 40px;
+                    padding-left: 30px;
+                }
+
+            }
+
+            .flex-horizontal {
+                @apply(--layout-horizontal);
+                @apply(--layout-around-justified);
+                width: 100%;
+                padding-top: 15px;
+            }
+
+            paper-button {
+                color: white; /*rgba(102, 0, 51, 1);*/
+            }
+
+            .menu {
+                background-color: white; /*rgba(102, 0, 51, 1);*/
+                height: 100%;
+            }
+
+            paper-drawer-panel{
+                /* paper-drawer-panel */
+                --drawer-menu-color: #fff;
+                --drawer-border-color: #fff;
+                --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);
+            }
+
+            @media screen and  (max-width: 800px) {
+                .order{
+                    display: none;
+                }
+            }
+            @media screen and  (min-width: 801px) {
+                .order{
+                    display: block;
+                }
+            }
+
+
+        </style>
+
+        <paper-drawer-panel id="drawerPanel" drawer-width="300px" responsive-width="1300px">
+            <paper-header-panel drawer>
+                <div class="menu" on-but-click="page">
+                    <div class="flex-horizontal">
+                        <but-lang-el i_id="fr" i_src="images/flag/fr.png" i_text="fr"></but-lang-el>
+                        <but-lang-el i_id="en" i_src="images/flag/en.png" i_text="en"></but-lang-el>
+                        <but-lang-el i_id="ge" i_src="images/flag/ge.png" i_text="ge"></but-lang-el>
+                    </div>
+                    <template id="rep" is="dom-repeat" items="{{menus}}">
+                        <but-icon-el i_id="{{item.id}}" i_src="{{item.icon}}" i_text="{{item.text}}"></but-icon-el>
+                    </template>
+                    <!--but-img-el i_id="news" i_src="images/fb.png" i_text="{{txt.news}}"></but-img-el-->
+                </div>
+            </paper-header-panel>
+            <paper-header-panel main>
+                <paper-toolbar class="toolbar">
+                    <paper-header-panel mode="waterfall">
+                        <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+                    </paper-header-panel>
+                    <div class="center">
+                        <span class="titlew">W</span><span class="titlewiala">Château Wiala</span>
+                    </div>
+                </paper-toolbar>
+                <div id="mainContent">
+                    <iron-image sizing="cover" class="fond" src="{{srcBG}}"
+                    preload fade alt="Tuchan wine area"
+                    ></iron-image>
+                    <neon-animated-pages class="main-content"
+                                         attr-for-selected="id" id="pages"
+                                         entry-animation="slide-from-right-animation"
+                                         exit-animation="slide-left-animation"
+
+                                         >
+                        <wines-el id="wines"></wines-el>
+                        <domain-el id="domain"></domain-el>
+                        <rewards-el id="rewards"></rewards-el>
+                        <team-el id="team"></team-el>
+                        <location-el id="bnb"></location-el>
+                        <order-el id="order"></order-el>
+                        <contact-el id="contact"></contact-el>
+                    </neon-animated-pages>
+                </div>
+
+            </paper-header-panel>
+        </paper-drawer-panel>
+        <!--paper-toast id="toast" text="{{message}}"></paper-toast-->
+
+    </template>
+</dom-module>

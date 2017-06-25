@@ -1,0 +1,16 @@
+<dom-module id="but-lang-el">
+    <template>
+        <style>
+            paper-button{
+                /*background-color: rgb(102, 0, 51);
+                color: white; */
+                background-color:  white;
+                color:rgb(102, 0, 51);
+            }
+        </style>
+        <paper-button class="but-lang" toggles raised on-tap="page" >
+            <iron-image src="{{i_src}}" sizing="contain" class="img32"></iron-image>
+            <div>{{i_text}}</div>
+        </paper-button>
+    </template>
+</dom-module>

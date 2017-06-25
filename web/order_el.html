@@ -1,0 +1,325 @@
+<dom-module id="order-el">
+    <template>
+        <style is="custom-style"  include="iron-flex iron-flex-alignment">
+            .sep {
+                padding: 20px 120px;
+            }
+
+            .card {
+                @apply(--layout-horizontal);
+                @apply(--layout-around-justified);
+            }
+
+            .cardcontent {
+                @apply(--layout-vertical);
+                padding: 25px;
+                width: 400px;
+            }
+
+            .spi {
+                background-color: rgba(255, 255, 255, 0.80);
+                margin: auto;
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+
+            .left-panel {
+                /*@apply(--layout-horizontal);
+                @apply(--layout-wrap); */
+                width: 60%;
+            }
+            .right-panel{
+                width:40%;
+            }
+
+            .euro {
+                font-size: 22px;
+                padding-left: 5px;
+            }
+
+            paper-button {
+                font-family: 'Roboto', sans-serif;
+                font-size: 16px;
+                @apply(--layout-self-center);
+                margin-right: 10px;
+
+            }
+
+            .flexchild {
+                @apply(--layout-flex);
+            }
+
+            .lineSimple {
+                @apply(--layout-horizontal);
+                @apply(--layout-around-justified);
+                padding: 10px 200px;
+            }
+
+            paper-input {
+                --paper-input-container-color: rgb(133, 65, 90);
+                --paper-input-container-focus-color: rgb(133, 65, 90);
+                --paper-input-container-invalid-color: rgb(255, 0, 0);
+                --paper-input-container-input-color: rgb(133, 65, 90);
+            }
+
+            .selfc {
+                @apply(--layout-self-center);
+                margin-left: 20px;
+            }
+            .padd{
+                padding: 5px;
+            }
+
+            .box{
+                width: 350px;
+                margin-left: 10px;
+            }
+            .box1{
+                width: 300px;
+            }
+
+            .sep-bottom{
+                padding: 5px 0px;
+                border-bottom-style: solid;
+                border-bottom-width: 1px;
+            }
+
+            .error{
+                background-color: rgb(133, 65, 90);
+                color: white;
+            }
+
+            paper-checkbox{
+                --paper-checkbox-unchecked-color:  rgb(133, 65, 90);
+                --paper-checkbox-unchecked-ink-color:  rgb(133, 65, 90);
+                --paper-checkbox-checked-color: rgb(133, 65, 90);
+                --paper-checkbox-checked-ink-color: rgb(133, 65, 90);
+                --paper-checkbox-label-color: rgb(133, 65, 90);
+            }
+            .div-pc{
+                padding-top: 20px;
+                @apply(--layout-horizontal);
+                @apply(--layout-wrap);
+                @apply(--layout-justified);
+            }
+            iron-pages{
+                color: rgba(102, 0, 51, 1);
+            }
+            paper-checkbox div{
+                font-family: 'Roboto', sans-serif;
+                font-size: 16px;
+            }
+            .right {
+                margin-right: 25px;
+            }
+
+            .del{
+                --paper-button:{
+                    padding: 0px;
+                    border-style: solid;
+                    border-width: 1px;
+                    min-width: 1.5em;
+                };
+            }
+
+            .boxSelect {
+                width: 120px;
+            }
+            .icon-log-in{
+                --iron-icon-width: 32px;
+                --iron-icon-height: 32px;
+            }
+
+            .log-out{
+                --paper-button:{
+                    padding: 0px 5px;
+                    text-transform: lowercase;
+                    text-decoration: underline;
+                };
+            }
+            .loginout{
+                background-color: rgba(255, 255, 255, 0.80);
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+
+            .left-marg{
+                margin-left: 10px;
+            }
+
+            #dialog{
+                /*background: rgba(0,0,0,0.7);*/
+                border-radius: 10px;
+                padding: 20px;
+                background-color: white;
+                --paper-dialog:{
+                    font-size: 18px;
+                };
+            }
+
+            .dialog-style{
+                max-height: 500px;
+                max-width: 600px;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                padding-bottom: 20px;
+
+            }
+            paper-input{
+                --paper-input-container-label: {
+                    font-size: 18px;
+                };
+            }
+            .spin{
+                --paper-spinner-layer-1-color: rgba(102, 0, 51, 1);
+                --paper-spinner-layer-2-color: rgba(102, 0, 51, 1);
+                --paper-spinner-layer-3-color: rgba(102, 0, 51, 0.66);
+                --paper-spinner-layer-4-color: rgba(102, 0, 51, 0);
+            }
+            paper-listbox{
+                /*background: transparent;*/
+                --paper-listbox-background-color : transparent;
+                @apply(--layout-horizontal);
+                @apply(--layout-around-justified);
+            }
+
+            paper-item{
+                /*display: inline; */
+                color: rgba(102, 0, 51, 1);
+                cursor:pointer;
+                @apply(--layout-horizontal);
+                @apply(--layout-around-justified);
+
+            }
+
+            .third{
+                width: 33.3%;
+            }
+
+            .half{
+                width: 50%;
+            }
+
+        </style>
+        <paper-dialog id="dialog"
+                      entry-animation="scale-up-animation"
+                      exit-animation="fade-out-animation"
+                      auto-fit-on-attach
+                      with-backdrop
+                      >
+            <div class="layout horizontal center-justified">
+                <paper-spinner id="spin" class="spin"></paper-spinner>
+            </div>
+                <div class="dialog-style" id="txtDialog"></div>
+            <div id="{{buDialogID}}" class="buttons">
+                <paper-button id="ok" on-click="butDialogExec"></paper-button>
+                <paper-button id="nok" on-click="butDialogNotExec"></paper-button>
+            </div>
+        </paper-dialog>
+        <paper-tabs id="paperTab" class="wiala-color-i title-mid" selected="{{selectedTab}}" on-iron-select="tabChange">
+            <paper-tab>{{txt.ident}}</paper-tab>
+            <paper-tab>{{txt.select}}</paper-tab>
+            <!--paper-tab>{{txt.valid}}</paper-tab -->
+        </paper-tabs>
+        <iron-pages selected="{{selectedTab}}">
+            <div>
+
+                <!-- Error login -->
+                <div class="spi text-center error" id="errorLogin">{{status}}</div>
+                <!--div class="spi card">{{txt.payment}}</div-->
+                <div class="card">
+                    <div class="cardcontent">
+                        <div class="title-mid">{{txt.connect}}</div>
+                        <form is="iron-form" id="formLogin" method="get" action="/ident"
+                              on-iron-form-response="formLoginResponse">
+                            <paper-input name="email" label="{{txt.email}}" required auto-validate
+                                         pattern="^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$"
+                            ></paper-input>
+                            <paper-input noink="true" value="login" name="req" style="display: none;"></paper-input>
+                            <div class="sep"></div>
+                            <paper-button raised toggles class="but" on-click="formLoginSub">OK</paper-button>
+                        </form>
+                    </div>
+                    <div class="cardcontent">
+                        <div class="title-mid">{{txt.new}}</div>
+                        <form is="iron-form" id="formIdent" method="post" action="/ident"
+                              on-iron-form-response="formIdentResponse">
+                            <paper-input class="inputPaper" id="lang" name="lang" label="{{txt.lang}}" style="display:none"></paper-input>
+                            <paper-listbox class="horizontal around-justified layout" id="langList" on-iron-select="langList" attr-for-selected="id">
+                                <paper-item class="third" id="fr">FR</paper-item>
+                                <paper-item class="third" id="ge">GE</paper-item>
+                                <paper-item class="third" id="en">EN</paper-item>
+                            </paper-listbox>
+                            <paper-input class="inputPaper" name="name" label="{{txt.name}}" required></paper-input>
+                            <paper-input class="inputPaper" name="familly" label="{{txt.family}}" required></paper-input>
+                            <paper-input name="email" label="{{txt.email}}" required auto-validate
+                                         pattern="^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$"></paper-input>
+                            <paper-input name="tel" label="{{txt.tel}}"></paper-input>
+                            <paper-input name="addr" label="{{txt.addr}}" required></paper-input>
+                            <paper-input name="cp" label="{{txt.cp}}" required></paper-input>
+                            <paper-input name="city" label="{{txt.city}}" required></paper-input>
+                            <paper-input id="country" name="country" label="{{txt.country}}" style="display:none" ></paper-input>
+                            <paper-listbox class="horizontal around-justified layout" id="countryList" on-iron-select="countryList" attr-for-selected="id" >
+                                    <paper-item id="fr" class="half">France</paper-item>
+                                    <paper-item id="ge" class="half">Germany</paper-item>
+                            </paper-listbox>
+                            <div class="sep"></div>
+                            <paper-button raised toggles class="but" on-click="formIdentSub" action="/form">OK
+                            </paper-button>
+                         </form>
+                    </div>
+                </div>
+            </div>
+            <div on-plus-min="addToCart">
+
+                <!-- List of wine will be displayed with through this div-->
+                <div class="layout horizontal">
+                    <div class="left-panel">
+                        <div id="orderwine" class="layout horizontal wrap" on-ref="setRef"></div>
+                    </div>
+                    <div class="right-panel layout vertical">
+                        <!--div class="title-mid spi text-center" id="statusCmd">{{statusCmd}}</div-->
+                        <div class="layout horizontal justify loginout">
+                            <iron-icon icon="icons:account-box" class="icon-log-in"></iron-icon>
+                            <div class="self-center left-marg">{{ident}}</div>
+                            <paper-button class="log-out" on-click="logOut">{{txt.logout}}</paper-button>
+                        </div>
+                        <div class="spi">
+                            <div class="layout horizontal">
+                                <div class="boxSelect self-center">{{txt.selection}}:</div>
+                                <div class="title-mid-inv">{{ref}}</div>
+                            </div>
+                            <but-plus-min-el id="nrbo" i_id="nr_bo" i_text="{{txt.bo}}" i_nr="{{nr_bo}}"></but-plus-min-el>
+                            <but-plus-min-el i_id="nr_ca" i_text="{{txt.ca}}" i_nr="{{nr_ca}}"></but-plus-min-el>
+                        </div>
+                        <div class="spi">
+                            <div class="boxSelect self-center" style="margin-bottom: 5px">{{txt.cart}}:</div>
+                            <template id="rep" is="dom-repeat" items="{{recapDsp}}">
+                                <div class="layout horizontal self-center sep-bottom">
+                                    <paper-button class="del" id="{{item.vin_ref}}_{{item.year}}" on-click="delItem">X</paper-button>
+                                    <div class="box"><span>{{item.vin}} {{item.year}} - {{item.type}}</span></div>
+                                    <div class="box1"><span>{{item.nr}} {{txt.unit}} * {{item.valu}} &#8364; = {{item.tot}} &#8364;</span></div>
+                                </div>
+                            </template>
+                        </div>
+                        <div class="spi">
+                            <div class="layout horizontal justified">
+                                <div class="self-center">
+                                    <span>{{txt.totPrice}}: {{tot}} <span> &#8364;</span></span>
+                                </div>
+                                <paper-button id="final" raised toggles class="but right" on-click="preSendCommand">{{txt.order}}</paper-button>
+                            </div>
+                            <div>{{nr_bo_tot}} {{txt.bo}}</div>
+                            <div>{{txt.fees}} = {{fees}}<span> &#8364; </span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </iron-pages>
+    </template>
+</dom-module>
